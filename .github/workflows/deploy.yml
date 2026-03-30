@@ -1,9 +1,18 @@
 name: Deploy Secure Assistant
 on:
   push:
-    branches: [main] # Runs every time you push code
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -11,12 +20,17 @@ jobs:
 
       - name: Inject Keys into Script
         run: |
-          # This replaces the placeholders in your script with real keys
           sed -i "s|INSERT_GEMINI_KEY_HERE|${{ secrets.GEMINI_API_KEY }}|g" script.js
           sed -i "s|INSERT_MURF_KEY_HERE|${{ secrets.MURF_API_KEY }}|g" script.js
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          path: '.' # This uploads your whole folder securely
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
