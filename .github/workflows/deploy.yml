@@ -1,0 +1,22 @@
+name: Deploy Secure Assistant
+on:
+  push:
+    branches: [main] # Runs every time you push code
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Inject Keys into Script
+        run: |
+          # This replaces the placeholders in your script with real keys
+          sed -i "s|INSERT_GEMINI_KEY_HERE|${{ secrets.GEMINI_API_KEY }}|g" script.js
+          sed -i "s|INSERT_MURF_KEY_HERE|${{ secrets.MURF_API_KEY }}|g" script.js
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
