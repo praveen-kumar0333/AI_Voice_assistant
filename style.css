@@ -1,0 +1,166 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1f0b3c, #3c0f61); 
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+
+.main-container {
+  margin: 30px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 20px;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+  max-width: 1200px;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ff2da0; }
+
+h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+#subTitle {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+}
+
+.card-cantainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+input[type="text"], input[type="time"], select, textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  color: black;
+}
+
+textarea {
+  resize: none;
+}
+
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #ff5a00, #ff2da0);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 45, 160, 0.4);
+}
+
+
+#emergencyBtn {
+  background-color: red;
+  border-radius: 80px;
+  border: 3px solid #ff2da0;
+  padding: 15px 30px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+
+.chatbox {
+  background: rgba(255, 255, 255, 0.1);
+  height: 200px;
+  overflow-y: auto;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.message {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.message.user {
+  background: rgba(209, 231, 255, 0.6);
+  text-align: right;
+  color: black;
+}
+
+.message.ai {
+  background: rgba(240, 240, 240, 0.6);
+  text-align: left;
+  color: black;
+}
+
+
+.voice-animation {
+  width: 50px;
+  height: 10px;
+  background: #ff2da0;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.voice-animation.active {
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(1.5); }
+}
+
+
+.tts-section textarea {
+  width: 100%;
+}
+
+.tts-section button {
+  width: fit-content;
+}
+
+
+@media screen and (max-width: 900px) {
+  .card-cantainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
