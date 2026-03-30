@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoiceTask AI Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+
+  <h1 id="mainTitle">🤖 VoiceTask AI Assistant</h1>
+  <p id="subTitle">
+• Answer educational questions instantly. <br/> 
+• Provide health tips and reminders.  <br/> 
+• Track medicine, meals, and exercise schedules.  <br/> 
+• Emergency assistance with one click.  <br/> 
+• Multilingual support for your convenience.  <br/> 
+• Text-to-speech conversion anytime.  <br/> 
+• Personalized AI companion for students, elders, and professionals.
+</p>
+
+
+  <div class="card-cantainer">   
+   <div>   
+ 
+  <div class="section">
+    <label for="languageSelect" id="languageLabel">Select Language:</label>
+    <select id="languageSelect" onchange="translatePage()">
+      <option value="en-US">English</option>
+      <option value="hi-IN">हिंदी</option>
+      <option value="kn-IN">ಕನ್ನಡ</option>
+      <option value="ta-IN">தமிழ்</option>
+      <option value="te-IN">తెలుగు</option>
+    </select>
+  </div>
+
+ 
+  <div class="section card" id="profileSection">
+    <h3 id="profileTitle">👤 User Profile</h3>
+    <input type="text" id="userName" placeholder="Enter your name">
+    <input type="text" id="familyNumber" placeholder="Emergency Contact Number">
+    <button onclick="saveProfile()" id="saveProfileBtn">Save Profile</button>
+    <p id="profileStatus"></p>
+  </div>
+
+  
+  <div class="section card schedule">
+    <h3 id="scheduleTitle">⏰ Daily Reminder Setup</h3>
+    <label id="medicineLabel">💊 Medicine Time</label>
+    <input type="time" id="medicineTime">
+    <label id="exerciseLabel">🏃 Exercise Time</label>
+    <input type="time" id="exerciseTime">
+    <label id="lunchLabel">🍛 Lunch Time</label>
+    <input type="time" id="lunchTime">
+    <label id="dinnerLabel">🌙 Dinner Time</label>
+    <input type="time" id="dinnerTime">
+    <button onclick="saveSchedule()" id="saveScheduleBtn">Save Schedule</button>
+  </div>
+
+  </div>
+
+  <!-- CHAT SECTION -->
+  <div class="section card chat-section">
+    <button onclick="startListening()" id="startBtn">🎤 Start Speaking</button>
+    <button onclick="clearChat()" id="clearBtn">🧹 Clear Chat</button>
+    <p id="status">Click the button and start speaking</p>
+    <div class="voice-animation" id="voiceAnimation"></div>
+    <div class="chatbox" id="chatbox"></div>
+    
+  </div>
+
+
+   <div class="section card tts-section">
+  <h3>📝 Text-to-Speech</h3>
+  <textarea id="ttsInput" placeholder="Type your text here..." rows="3"></textarea>
+  <button onclick="generateSpeech()">🔊 Convert to Audio</button>
+
+  <div> <button id="emergencyBtn" class="emergencyBtn">🚨 EMERGENCY</button></div>
+</div>
+    
+  </div>
+</div>
+
+
+
+<div class="section">
+  <input type="text" id="userInputText" placeholder="Type your question here">
+  <button onclick="askGemini()">Ask AI</button>
+</div>
+
+
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
